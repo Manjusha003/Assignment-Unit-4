@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expense Manager</title>
+    </head>
+    <body id="body">
+        <section>
+            <h1>Expense Manger</h1>
+            <div class="form-wrapper">
+                <form id="form">
+                    <label for="month">Month</label>
+                    <select id="month"></select>
+                    <label for="expense">expense</label>
+                    <input type="text" placeholder="eg: 10000" id="expense" />
+                    <label for="income">income</label>
+                    <input type="text" placeholder="eg: 3000" id="income" />
+                    <input type="submit" />
+                </form>
+            </div>
+        </section>
+        <section id="card-wrapper"></section>
+
+        <script>
+            const month = document.getElementById("month");
+            const form = document.getElementById("form");
+            const expense = document.getElementById("expense");
+            const income = document.getElementById("income");
+            form.addEventListener("submit", handleFormSubmit);
+
+            function addMonths() {
+                const months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                for (let i = 0; i < months.length; i++) {
+                    const option = document.createElement("option");
+                    option.value = months[i];
+                    option.textContent = months[i];
+                    month.appendChild(option);
+                }
+            }
+
+            function addToLocalStorage(month, expense, income) {
+                const expenseObj = { month, expense, income };
+                let localValue = localStorage.getItem("expense");
+                if (localValue == null) {
+                    localStorage.setItem(
+                        "expense",
+                        JSON.stringify([expenseObj])
+                    );
+                } else {
+                    localValue = JSON.parse(localValue);
+                    localValue.push(expenseObj);
+                    localStorage.setItem("expense", JSON.stringify(localValue));
+                }
+            }
+
+            function handleFormSubmit(e) {
+                e.preventDefault();
+                const monthValue = month.value;
+                const expenseValue = expense.value;
+                const incomeValue = income.value;
+                const cardWrapper = document.getElementById("card-wrapper");
+                addToLocalStorage(monthValue, expenseValue, incomeValue);
+                // let wrapperHtml = cardWrapper.innerHTML;
+
+                // wrapperHtml += `
+                // <div class="saving-card">
+                // <h4>${monthValue}</h4>
+                // <p>Income ${incomeValue}</p>
+                // <p>Expense ${expenseValue}</p>
+                // <p>Saving ${incomeValue - expenseValue}</p>
+                // </div>
+                // `;
+
+                // cardWrapper.innerHTML = wrapperHtml;
+            }
+
+            function createCardFromLocal() {
+                let localValue = localStorage.getItem("expense");
+                localValue = JSON.parse(localValue);
+                const cardWrapper = document.getElementById("card-wrapper");
+                let wrapperHtml = cardWrapper.innerHTML;
+
+                for (let i = 0; i < localValue.length; i++) {
+                    wrapperHtml += `
+        <div class="saving-card">
+        <h4>${localValue[i].month}</h4>
+        <p>Income ${localValue[i].income}</p>
+        <p>Expense ${localValue[i].expense}</p>
+        </div>
+        `;
+                }
+                cardWrapper.innerHTML = wrapperHtml;
+            }
+
+            function handleWindowLoad() {
+                addMonths();
+                createCardFromLocal();
+            }
+
+            window.addEventListener("load", handleWindowLoad);
+        </script>
+    </body>
+</html>

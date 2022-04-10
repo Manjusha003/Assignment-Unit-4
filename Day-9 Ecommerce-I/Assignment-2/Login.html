@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: "Poppins", sans-serif;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+
+                font-size: 20px;
+            }
+            #navbar {
+                background-color: black;
+                display: flex;
+                padding: 20px;
+                justify-content: space-around;
+            }
+            input {
+                padding: 10px;
+                width: 380px;
+            }
+            form > div {
+                margin: 10px;
+            }
+            #top {
+                width: 33%;
+                margin: 20px auto;
+                padding: 10px;
+                border: 1px solid grey;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .btn > input {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <div><a href="men.html">Men</a></div>
+                <div><a href="women.html">Women</a></div>
+                <div><a href="kids.html">Kids</a></div>
+                <div><a href="signUp.html">sign up</a></div>
+                <div><a href="login.html">Login</a></div>
+            </nav>
+        </header>
+        <section id="top">
+            <h1>Login Page</h1>
+            <form>
+                <div class="email">
+                    <input id="email" type="email" placeholder="Enter email" />
+                </div>
+                <div class="pass">
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="Enter password"
+                    />
+                </div>
+                <div class="btn">
+                    <input type="submit" />
+                </div>
+            </form>
+        </section>
+    </body>
+    <script>
+        document.querySelector("form").addEventListener("submit", loginFn);
+
+        var registeredUsers = JSON.parse(localStorage.getItem("UsersData"));
+        function loginFn() {
+            event.preventDefault();
+            var enteredEmail = document.querySelector("#email").value;
+            var enteredPassword = document.querySelector("#password").value;
+
+            registeredUsers.forEach((userData) => {
+                if (
+                    userData.email === enteredEmail &&
+                    userData.password === enteredPassword
+                ) {
+                    alert("LOGIN SUCCESS");
+                    window.location.href = "Assignment-1/men.html";
+                    // return;
+                } else {
+                    alert("Incorrect Details");
+                }
+            });
+        }
+    </script>
+</html>

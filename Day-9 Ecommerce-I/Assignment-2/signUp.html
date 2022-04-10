@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: "Poppins", sans-serif;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+
+                font-size: 20px;
+            }
+            #navbar {
+                background-color: black;
+                display: flex;
+                padding: 20px;
+                justify-content: space-evenly;
+                text-align: center;
+            }
+            .top {
+                border: 1px solid grey;
+                border-radius: 10px;
+                width: 35%;
+                margin: auto;
+                margin-top: 40px;
+                padding: 20px;
+            }
+            input {
+                padding: 10px;
+                width: 400px;
+            }
+            input:hover {
+                border: 1px solid red;
+            }
+            form > div {
+                margin: 10px;
+            }
+            .btn > input {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <div>
+                    <a href="../Assignment-1/men.html">Men</a>
+                </div>
+                <div><a href="../Assignment-1/women.html">Women</a></div>
+                <div><a href="../Assignment-1/kids.html">Kids</a></div>
+                <div><a href="signUp.html">sign in</a></div>
+                <div><a href="login.html">Login</a></div>
+            </nav>
+        </header>
+        <section class="top">
+            <h1>Sign -In</h1>
+            <form>
+                <div class="username">
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        placeholder="Enter your username"
+                        id="userName"
+                    />
+                </div>
+                <div class="password">
+                    <label for="pass">Password</label>
+                    <input
+                        type="password"
+                        placeholder="Enter password"
+                        id="password"
+                    />
+                </div>
+                <div class="email">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter Email" id="email" />
+                </div>
+                <div class="btn">
+                    <input type="submit" value="Signup" />
+                </div>
+            </form>
+        </section>
+    </body>
+    <script>
+        document.querySelector("form").addEventListener("submit", singUpFn);
+
+        var usersData;
+        if (localStorage.getItem("UsersData") === null) {
+            usersData = [];
+        } else {
+            usersData = JSON.parse(localStorage.getItem("UsersData"));
+        }
+        function singUpFn() {
+            event.preventDefault();
+            var userObj = {
+                email: document.querySelector("#email").value,
+                password: document.querySelector("#password").value,
+                userName: document.querySelector("#userName").value,
+            };
+            usersData.push(userObj);
+            localStorage.setItem("UsersData", JSON.stringify(usersData));
+            document.querySelector("#email").value = "";
+            document.querySelector("#password").value = "";
+            document.querySelector("#userName").value = "";
+        }
+    </script>
+</html>

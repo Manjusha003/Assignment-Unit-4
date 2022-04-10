@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: black;
+            }
+
+            .container {
+                background-color: white;
+                display: grid;
+
+                padding: 20px 0px 40px 0px;
+                margin-top: 50px;
+            }
+
+            .box-wrap {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 70%;
+                gap: 30px;
+                margin: auto;
+            }
+
+            .box-wrap > div {
+                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+                    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+                padding: 25px;
+                border-radius: 10px;
+            }
+
+            .box-wrap > div > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .box-wrap > div > div > p {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+
+            .box-wrap > div > div > p:last-child {
+                color: rgb(175, 123, 25);
+            }
+
+            @media (min-width: 86px) and (max-width: 450px) {
+                .box-wrap {
+                    grid-template-columns: repeat(1, 1fr);
+                    width: 80%;
+                    margin: auto;
+                }
+            }
+            @media (min-width: 451px) and (max-width: 850px) {
+                .box-wrap {
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 90%;
+
+                    margin: auto;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="box-wrap">
+                <div>
+                    <div>
+                        <p>Cappuccino</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Americano</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Espresso</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Macchiato</p>
+                        <p>$49</p>
+                    </div>
+
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Mocha</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Coffee Latte</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Piccolo Latte</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Ristretto</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <p>Affogato</p>
+                        <p>$49</p>
+                    </div>
+                    <p>
+                        Usage of the Internet is becoming more common due to
+                        rapid advance
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

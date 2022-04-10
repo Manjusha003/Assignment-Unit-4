@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            form {
+                background-color: hotpink;
+                margin: auto;
+                width: 50%;
+                padding: 50px;
+                font-size: 30px;
+                border-radius: 20px;
+            }
+            select {
+                padding: 14px;
+                font-size: 16px;
+                border: none;
+                border-radius: 7px;
+            }
+            input {
+                padding: 16px;
+                border: none;
+                border-radius: 7px;
+            }
+            button {
+                padding: 20px;
+                border: none;
+                border-radius: 10px;
+                background-color: #009;
+                color: white;
+                font-size: 16px;
+                width: 150px;
+                margin: auto;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Marrige Age Validator</h1>
+        <form>
+            <label for=""> Gender:</label>
+            <select name="" id="Gender">
+                <option value="--">---select your gender---</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br />
+            <br />
+            <label for="">Enter Birth Year:</label>
+            <input type="number" value="" id="age" />
+
+            <br />
+            <br />
+
+            <button onclick="myAge()">Save</button>
+        </form>
+    </body>
+    <script>
+        function myAge() {
+            let year = document.getElementById("age").value;
+            let gender = document.getElementById("Gender").value;
+
+            function getAge(birthYear) {
+                var currentDate = new Date();
+                var currentYear = currentDate.getFullYear();
+                age = currentYear - birthYear;
+
+                return age;
+            }
+
+            var calculatedAge = getAge(year);
+            if (gender == "Female" && calculatedAge >= 18) {
+                alert("You can Marry a Boy!!");
+            } else if (calculatedAge >= 21 && gender == "Male") {
+                alert("You can Marry a Girl!!");
+            } else {
+                alert("You are not eligible!!");
+            }
+        }
+    </script>
+</html>

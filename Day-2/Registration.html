@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: black;
+            }
+            .container {
+                background-color: white;
+
+                width: 80%;
+                height: 700px;
+                margin: auto;
+                display: flex;
+            }
+            .box {
+                height: 75%;
+                width: 35%;
+                margin: auto;
+            }
+            input {
+                padding: 20px;
+                margin: 10px;
+                width: 300px;
+                border: 2px solid black;
+            }
+            .box div {
+                margin-bottom: 30px;
+            }
+            .box1 p {
+                font-weight: bold;
+                font-size: 26px;
+                padding-left: 15px;
+            }
+            .ct {
+                color: red;
+                font-size: 20px;
+            }
+            .btn {
+                background-color: black;
+                color: white;
+                width: 310px;
+                padding: 16px;
+                border: none;
+                margin-left: 25px;
+                font-size: 24px;
+            }
+            .box2 {
+                background-color: black;
+                color: white;
+                padding-top: 50px;
+            }
+            .box2 div {
+                margin: 20px;
+            }
+            .fs-28 {
+                font-size: 28px;
+            }
+            .fs-60 {
+                font-size: 60px;
+            }
+            .fs-30 {
+                font-size: 30px;
+            }
+            .fs-35 {
+                font-size: 35px;
+            }
+            .box2 div {
+                margin: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box box1">
+                <div>
+                    <p>NAME</p>
+                    <input type="text" />
+                </div>
+                <div>
+                    <p>EMAIL</p>
+                    <input type="text" />
+                </div>
+                <div>
+                    <p>MOBILE</p>
+                    <input type="text" />
+                    <p class="ct">Enter a valid mobile</p>
+                </div>
+                <button class="btn">REGISTER</button>
+            </div>
+            <div class="box box2">
+                <div>
+                    <p class="fs-30">NAME</p>
+                    <p class="fs-60">MASAI</p>
+                </div>
+                <div>
+                    <p class="fs-30">EMAIL</p>
+                    <p class="fs-28">mail@masaischool.com</p>
+                </div>
+                <div>
+                    <p class="fs-30">MOBILE</p>
+                    <p class="fs-35">9876543210</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

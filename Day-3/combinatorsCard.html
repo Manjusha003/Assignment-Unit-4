@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: black;
+            }
+
+            .container {
+                background-color: whitesmoke;
+                width: 100%;
+                padding: 20px;
+                height: auto;
+                margin-top: 50px;
+            }
+
+            .box {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 70%;
+                margin: auto;
+                gap: 15px;
+            }
+
+            .box > div {
+                background-color: white;
+            }
+
+            .box > div > img {
+                width: 100%;
+            }
+
+            .box > div > p {
+                padding: 15px;
+            }
+
+            .box > div > div > p:first-child {
+                font-size: 20px;
+                font-weight: bold;
+                padding: 20px;
+            }
+
+            .box > div > div > p:last-child {
+                border-left: 4px solid orangered;
+                padding-left: 10px;
+                margin-left: 15px;
+                margin-bottom: 20px;
+                color: gray;
+            }
+
+            @media (min-width: 86px) and (max-width: 450px) {
+                .box {
+                    grid-template-columns: repeat(1, 1fr);
+                    width: 90%;
+                    margin: auto;
+                    gap: 20px;
+                }
+            }
+
+            @media (min-width: 451px) and (max-width: 850px) {
+                .box {
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 90%;
+                    margin: auto;
+                    gap: 20px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="box">
+                <div>
+                    <img src="https://via.placeholder.com/350X200" alt="" />
+                    <div>
+                        <p>
+                            UK and US join forces to strike back in cyber-space
+                        </p>
+                        <p>TECHNOLOGY</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/350X200" alt="" />
+                    <div>
+                        <p>
+                            UK and US join forces to strike back in cyber-space
+                        </p>
+                        <p>TECHNOLOGY</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/350X200" alt="" />
+                    <div>
+                        <p>
+                            UK and US join forces to strike back in cyber-space
+                        </p>
+                        <p>TECHNOLOGY</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/350X200" alt="" />
+                    <div>
+                        <p>
+                            UK and US join forces to strike back in cyber-space
+                        </p>
+                        <p>TECHNOLOGY</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/350X200" alt="" />
+                    <div>
+                        <p>
+                            UK and US join forces to strike back in cyber-space
+                        </p>
+                        <p>TECHNOLOGY</p>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/350X200" alt="" />
+                    <div>
+                        <p>
+                            UK and US join forces to strike back in cyber-space
+                        </p>
+                        <p>TECHNOLOGY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

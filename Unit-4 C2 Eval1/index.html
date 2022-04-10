@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .top-section {
+
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+
+        }
+
+        .top-head {
+            display: flex;
+        }
+
+        h2 {
+
+            margin: auto;
+            padding-bottom: 20px;
+        }
+
+        .boxes {
+            display: flex;
+            margin: auto;
+
+
+        }
+
+        .boxes>div {
+
+            margin: auto;
+
+        }
+
+        .bottom-section {
+
+            width: 100%;
+            padding: 10px 30px;
+            margin: auto;
+            background-color: rgb(243, 245, 246);
+        }
+
+        .bottom-boxes {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+
+        }
+
+        .bottom-boxes div {
+            background-color: #fff;
+
+            padding: 20px;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+
+        .bottom-boxes>div>img {
+
+            padding: 40px;
+            border-radius: 50%;
+
+            background-color: #6DEF;
+
+        }
+
+        .bottom-boxes div p {
+            color: rgb(92, 91, 91);
+
+        }
+
+        @media (min-width:86px) and (max-width:450px) {
+            .boxes div {
+                padding-bottom: 20px;
+
+            }
+
+            .boxes {
+
+                margin: auto;
+
+                flex-direction: column;
+
+            }
+
+            .bottom-boxes {
+
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                width: 100%;
+
+            }
+
+            .bottom-section {
+
+                width: 100%;
+                padding: 10px 20px;
+
+            }
+
+        }
+
+        @media (min-width:451px) and (max-width:850px) {
+            .boxes {
+
+                margin: auto;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+
+            }
+
+            .bottom-boxes {
+
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                width: 100%;
+
+            }
+
+            .bottom-section {
+
+                width: 100%;
+                padding: 10px 20px;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-section">
+            <div class="top-head">
+                <h2>Our Blog Posts</h2>
+            </div>
+            <div class="boxes">
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuy-NE86GcPn8THeAUo3lEsY2H05snxVGpzQ&usqp=CAU"
+                        alt="">
+                    <p>29,January 2019</p>
+                    <p>Architectural Art Modren</p>
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuy-NE86GcPn8THeAUo3lEsY2H05snxVGpzQ&usqp=CAU"
+                        alt="">
+                    <p>29,January 2019</p>
+                    <p>Architectural Art Modren</p>
+                </div>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuy-NE86GcPn8THeAUo3lEsY2H05snxVGpzQ&usqp=CAU"
+                        alt="">
+                    <p>29,January 2019</p>
+                    <p>Architectural Art Modren</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="bottom-section">
+            <div class="bottom-boxes">
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+                <div>
+                    <img src="" alt="">
+                    <h4>Web Development</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis delectus ex id.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            #container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                padding: 30px;
+            }
+            body {
+                font-family: "Poppins", sans-serif;
+            }
+            .box {
+                /* border: 1px solid gray; */
+
+                padding-left: 10px;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+                    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            }
+            .box img {
+                width: 70%;
+            }
+            button {
+                background-color: red;
+                color: white;
+
+                font-size: 16px;
+                padding: 10px;
+                border: none;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+
+                font-size: 20px;
+            }
+            #navbar {
+                background-color: black;
+                display: flex;
+                padding: 20px;
+                justify-content: space-around;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav id="navbar">
+                <div><a href="men.html">Men</a></div>
+                <div><a href="women.html">Women</a></div>
+                <div><a href="kids.html">Kids</a></div>
+            </nav>
+        </header>
+        <h1>Kids Page</h1>
+        <div id="container"></div>
+    </body>
+    <script>
+        var kidsData = [
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/krwec280/jacket/e/c/x/m-mnt-7021-montrez-original-imag5hb96dcwrpmn.jpeg?q=50",
+                type: "MONTREZ",
+                name: "Full Sleeve Washed Men Casual Jacket",
+                price: "₹" + 799,
+            },
+
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/l08gsy80/kurta/u/v/m/l-grey-106-yellow-freluro-original-imagc26vdpwxgztu.jpeg?q=50",
+                type: "FRELURO",
+                name: " Men Printed Cotton Blend Straight Kurta  (Yellow)",
+                price: "₹" + 359,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kz3118w0/t-shirt/o/q/f/l-t305-as10yldnwh-eyebogler-original-imagb62bzjrgqa5v.jpeg?q=50",
+                type: "Eyebogler",
+                name: "Striped Men Round Neck Yellow, Blue, White T-Shirt",
+                price: "₹" + 299,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/jwmfcsw0/shirt/p/z/e/xl-white-trending-shirt-qlonz-store-original-imafh87megng23cb.jpeg?q=50",
+                type: "Qlonz store",
+                name: "Men Regular Fit Solid Collarless Collar Casual Shirt ",
+                price: "₹" + 399,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kf1fo280-0/shirt/w/u/a/38-ae-s-amit-enterprises-original-imafvh6zzatqczmb.jpeg?q=50",
+                type: "Edinwolf",
+                name: "Men Solid Cotton Blend A-line Kurta",
+                price: "₹" + 799,
+            },
+
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kp4difk0/shirt/a/z/m/s-d-1274-gespo-original-imag3fggahnrxyf4.jpeg?q=50",
+                type: "GESPO",
+                name: " Men Regular Fit Solid Mandarin Collar Casual Shirt",
+                price: "₹" + 361,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/klgx0280/shirt/p/p/x/l-shirt-296-filafil-original-imagyhhdhaypzzvv.jpeg?q=50",
+                type: "FILAFIL",
+                name: "Men Slim Fit Solid Spread Collar Formal Shirt",
+                price: "₹" + 599,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/jwmfcsw0/shirt/p/z/e/xl-white-trending-shirt-qlonz-store-original-imafh87megng23cb.jpeg?q=50",
+                type: "Qlonz store",
+                name: "Men Regular Fit Solid Collarless Collar Casual Shirt ",
+                price: "₹" + 399,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/krwec280/jacket/e/c/x/m-mnt-7021-montrez-original-imag5hb96dcwrpmn.jpeg?q=50",
+                type: "MONTREZ",
+                name: "Full Sleeve Washed Men Casual Jacket",
+                price: "₹" + 799,
+            },
+
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kt7jv680/shirt/9/p/k/xl-men-slim-fit-solid-mandarin-collar-casual-shirt-mildin-original-imag6hxsmggaqr4h.jpeg?q=50",
+                type: "MILDIN",
+                name: " Men Slim Fit Solid Mandarin Collar Formal Shirt",
+                price: "₹" + 869,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kz3118w0/t-shirt/o/q/f/l-t305-as10yldnwh-eyebogler-original-imagb62bzjrgqa5v.jpeg?q=50",
+                type: "Eyebogler",
+                name: "Striped Men Round Neck Yellow, Blue, White T-Shirt",
+                price: "₹" + 299,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/j6l2hzk0/waistcoat/g/k/k/36-wcb-102-s1-manq-original-imaewzhzzbbvyggz.jpeg?q=50",
+                type: "MANQ",
+                name: "Solid Men Waistcoat ",
+                price: "₹" + 999,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/krwec280/jacket/e/c/x/m-mnt-7021-montrez-original-imag5hb96dcwrpmn.jpeg?q=50",
+                type: "MONTREZ",
+                name: "Full Sleeve Washed Men Casual Jacket",
+                price: "₹" + 799,
+            },
+
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kp4difk0/shirt/a/z/m/s-d-1274-gespo-original-imag3fggahnrxyf4.jpeg?q=50",
+                type: "GESPO",
+                name: " Men Regular Fit Solid Mandarin Collar Casual Shirt",
+                price: "₹" + 361,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kz3118w0/t-shirt/o/q/f/l-t305-as10yldnwh-eyebogler-original-imagb62bzjrgqa5v.jpeg?q=50",
+                type: "Eyebogler",
+                name: "Striped Men Round Neck Yellow, Blue, White T-Shirt",
+                price: "₹" + 299,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/jwmfcsw0/shirt/p/z/e/xl-white-trending-shirt-qlonz-store-original-imafh87megng23cb.jpeg?q=50",
+                type: "Qlonz store",
+                name: "Men Regular Fit Solid Collarless Collar Casual Shirt ",
+                price: "₹" + 399,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/krwec280/jacket/e/c/x/m-mnt-7021-montrez-original-imag5hb96dcwrpmn.jpeg?q=50",
+                type: "MONTREZ",
+                name: "Full Sleeve Washed Men Casual Jacket",
+                price: "₹" + 799,
+            },
+
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kp4difk0/shirt/a/z/m/s-d-1274-gespo-original-imag3fggahnrxyf4.jpeg?q=50",
+                type: "GESPO",
+                name: " Men Regular Fit Solid Mandarin Collar Casual Shirt",
+                price: "₹" + 361,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kz3118w0/t-shirt/o/q/f/l-t305-as10yldnwh-eyebogler-original-imagb62bzjrgqa5v.jpeg?q=50",
+                type: "Eyebogler",
+                name: "Striped Men Round Neck Yellow, Blue, White T-Shirt",
+                price: "₹" + 299,
+            },
+            {
+                image_url:
+                    "https://rukminim2.flixcart.com/image/495/594/kwv0djk0/cap/j/w/o/free-solid-brand-a-new-collection-cap-black-wayfarer-sunglass-original-imag9fuzgbcp7nbe.jpeg?q=50",
+                type: "blutech",
+                name: "Embroidered, Solid, Self Design BRAND VIRAT KOHLI INSPIRED BLACK BASEBALL CAP + BLACK WAYFARER SUNGLASS FOR BOYS ",
+                price: "₹" + 399,
+            },
+        ];
+
+        var cartData;
+
+        if (localStorage.getItem("cartData") === null) {
+            cartData = [];
+        } else {
+            cartData = JSON.parse(localStorage.getItem("cartData"));
+        }
+        kidsData.forEach(function (kidData) {
+            var box = document.createElement("div");
+            box.setAttribute("class", "box");
+
+            var img = document.createElement("img");
+            img.src = kidData.image_url;
+
+            var type = document.createElement("p");
+            type.innerText = kidData.type;
+            type.style.color = "rgb(143, 143, 140)";
+
+            var name = document.createElement("p");
+            name.textContent = kidData.name;
+
+            var price = document.createElement("p");
+            price.textContent = kidData.price;
+            price.style.fontSize = "18px";
+            price.style.fontWeight = "bold";
+
+            var cartBtn = document.createElement("button");
+            cartBtn.textContent = "Add to cart";
+
+            cartBtn.addEventListener("click", function () {
+                cartData.push(kidData);
+                console.log(cartData);
+                alert("item added successfuly to cart");
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+            });
+
+            box.append(img, type, name, price, cartBtn);
+            document.querySelector("#container").append(box);
+        });
+    </script>
+</html>
