@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: black;
+}
+
+#navbar>div {
+    display: flex;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+input,
+select {
+    display: block;
+    margin: 15px 0px;
+    font-size: 18px;
+    padding: 2%;
+}
+
+#form-box{
+    border: 1px solid rgb(230, 230, 230);
+    width: 400px;
+    margin: 3% auto;
+    padding: 3%;
+}
+
+#submit {
+    width: 70%;
+    margin: auto;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 16px;
+}
+
+table,
+td,
+th {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+thead>tr>th {
+    background-color: hotpink;
+    color: white;
+}
+

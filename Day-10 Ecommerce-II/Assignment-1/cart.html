@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+           <div id="checkout"></div>
+    </body>
+    <script>
+        var cartData = JSON.parse(localStorage.getItem("cartData"));
+
+        var totalSum = cartData.reduce(function(sum, ele, index, arr) {
+            return sum + Number(ele.price);
+        }, 0);
+        var totalItems = cartData.length;
+        document.querySelector('p').innerText = 'You have ' + " " + totalItems + " " + "items" + " "+ "in your cart and total is" + totalSum;
+        cartData.forEach((cartItem, cartIndex) => {
+            var box = document.createElement("div");
+            box.setAttribute("class", "box");
+
+            var img = document.createElement("img");
+            img.src = cartItem.image_url;
+
+            var name = document.createElement("p");
+            name.textContent = cartItem.name;
+
+            var price = document.createElement("p");
+            price.innerText = cartItem.price;
+
+            var cartButton = document.createElement("button");
+            cartButton.innerText = "Remove from cart";
+
+            cartButton.addEventListener("click", function () {
+                cartData.splice(cartIndex, 1);
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+                window.location.reload();
+            });
+
+            box.append(img, name, price, cartButton);
+            document.querySelector("#checkout").append(box);
+        });
+    </script>
+</html>
