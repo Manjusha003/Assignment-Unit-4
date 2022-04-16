@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Payment Page</title>
+        <style>
+            form {
+                margin-left: 30px;
+                border: 1px solid gray;
+                border-radius: 10px;
+                width: 20%;
+                margin: auto;
+
+                padding: 30px;
+            }
+
+            form > input {
+                display: block;
+            }
+            form div {
+                margin-bottom: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <div id="container">
+                <h3>Enter Your Card Details</h3>
+                <div>
+                    <label for=""> Name On Card :</label><br /><br />
+                    <input type="text" placeholder="Name on Card" />
+                </div>
+                <div>
+                    <label for="">Card Number:</label><br /><br />
+                    <input type="number" placeholder="CARD NUMBER" />
+                </div>
+                <div>
+                    <label for="">Enter Card Expiration Date</label><br /><br />
+                    <input type="date" placeholder="dd/mm/yy" />
+                </div>
+                <div>
+                    <label for="">CVV</label><br /><br />
+                    <input type="password" placeholder="CVV" />
+                </div>
+
+                <button id="pay">Place Order</button>
+            </div>
+        </form>
+    </body>
+    <script>
+        document.querySelector("#pay").addEventListener("click", payNow);
+        function payNow() {
+            // event.preventDefault();
+            alert("Your order is successfully placed ");
+        }
+    </script>
+</html>

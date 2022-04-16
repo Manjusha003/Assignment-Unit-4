@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #total,
+            input {
+                text-align: right;
+                margin-right: 50px;
+                align-items: right;
+                font-size: 20px;
+            }
+            input {
+                align-items: right;
+                text-align: right;
+            }
+            #cartItems {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="total"></p>
+
+        <div id="cartItems"></div>
+    </body>
+
+    <script>
+        var cartData = JSON.parse(localStorage.getItem("cartData"));
+
+        var totalSum = cartData.reduce(function (sum, ele, index, arr) {
+            return sum + Number(ele.price);
+        }, 0);
+        console.log(totalSum);
+        var totalItems = cartData.length;
+        console.log(totalItems);
+        document.querySelector("p").innerText =
+            "Item : " + totalItems + "\n" + "Total Price : " + totalSum;
+
+        cartData.forEach((product, cartIndex) => {
+            var cartBox = document.createElement("div");
+            cartBox.setAttribute("class", "cartBox");
+
+            var img = document.createElement("img");
+            img.src = product.image_url;
+
+            var name = document.createElement("p");
+            name.textContent = product.name;
+
+            var rating = document.createElement("p");
+            rating.textContent = "Rating: " + product.rating;
+
+            var price = document.createElement("p");
+            price.textContent = "₹ " + product.price;
+
+            var btn = document.createElement("button");
+            btn.textContent = "Remove From Cart";
+
+            btn.addEventListener("click", function () {
+                cartData.splice(cartIndex, 1);
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+                window.location.reload();
+            });
+
+            cartBox.append(img, name, rating, price, btn);
+            document.querySelector("#cartItems").append(cartBox);
+        });
+    </script>
+</html>
