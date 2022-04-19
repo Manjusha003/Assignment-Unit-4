@@ -13,7 +13,13 @@
             }
 
             .box {
-                border: 2px solid red;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+                border-radius: 10px;
+                max-width: 90%;
+                width: 100%;
+                gap: 20px;
+                padding: 5px;
             }
             @media all and (min-width: 80px) and (max-width: 400px) {
                 #container {
@@ -35,7 +41,7 @@
         </div>
         <div>
             <select id="sortInput">
-                <option value="none">None</option>
+                <option value="Sort BY Price">Sort BY Price</option>
                 <option value="lowToHigh">Low to high</option>
                 <option value="highToLow">Hight to low</option>
             </select>
@@ -340,6 +346,11 @@
 
                 var cartButton = document.createElement("button");
                 cartButton.innerText = "Add to cart";
+                cartButton.style.backgroundColor = "red";
+                cartButton.style.border = "none";
+                cartButton.style.padding = "10px";
+                cartButton.style.color = "white";
+                cartButton.style.fontSize = "14px";
 
                 cartButton.addEventListener("click", function () {
                     cartData.push(menData);

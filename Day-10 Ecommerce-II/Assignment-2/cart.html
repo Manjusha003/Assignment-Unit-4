@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #price{ 
+              align-items:right;
+              justify-content: right;
+           
+            text-align: end;
+            padding: 20px;
+          
+               
+            
+            }
+            #price >p{
+                font-size: 18px;
+
+            }
+            #checkout{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                margin-top: 3%;
+
+            }
+            .box{
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+              
+                border-radius: 10px;
+                max-width: 90%;
+                width: 100%;
+                gap: 20px;
+                padding: 5px;
+
+            }
+        </style>
+    </head>
+               <div id="price">
+        <p></p>
+        <p id="offer"></p>
+        <p id="save"></p>
+           <input type="text" id="input">
+           <button id="discount" aria-placeholder="Enter Promo Code">Appay Promo</button></div>
+           <div id="checkout"></div>
+          
+    </body>
+    <script>
+        var cartData = JSON.parse(localStorage.getItem("cartData"));
+
+        var totalSum = cartData.reduce(function(sum, ele, index, arr) {
+            return sum + Number(ele.price);
+        }, 0);
+        var totalItems = cartData.length;
+        document.querySelector('p').innerText = "Items: " + " " + totalItems + 
+         "\n "+"TotalPrice: "+totalSum;
+        cartData.forEach((cartItem, cartIndex) => {
+            var box = document.createElement("div");
+            box.setAttribute("class", "box");
+
+            var img = document.createElement("img");
+            img.src = cartItem.image_url;
+
+            var name = document.createElement("p");
+            name.textContent = cartItem.name;
+
+            var price = document.createElement("p");
+            price.innerText = cartItem.price;
+
+            var cartButton = document.createElement("button");
+            cartButton.innerText = "Remove from cart";
+
+            cartButton.addEventListener("click", function () {
+                cartData.splice(cartIndex, 1);
+                localStorage.setItem("cartData", JSON.stringify(cartData));
+                window.location.reload();
+            });
+
+            box.append(img, name, price, cartButton);
+            document.querySelector("#checkout").append(box);
+        });
+
+        document.querySelector("#discount").addEventListener("click",applyPromoCode)
+        function applyPromoCode(){
+           
+           if(document.querySelector("#input").value=="Masai30"){
+            
+               var discount=totalSum-(totalSum*30/100);
+         var save=totalSum-discount;
+               document.querySelector("#offer").textContent="TotalPrice After 30% of Discount "+discount;
+document.querySelector("#save").textContent="You Save: "+save;
+
+              
+           }else{
+               alert("please Enter correct Promo code");
+           }
+
+
+        }
+    </script>
+</html>

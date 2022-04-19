@@ -12,6 +12,17 @@
                 padding: 20px;
                 height: 300px;
                 justify-content: space-between;
+                width: 40%;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                margin: auto;
+            }
+            form > input,
+            form > select {
+                padding: 10px;
+                width: 78%;
+            }
+            h1 {
+                text-align: center;
             }
         </style>
     </head>
@@ -55,7 +66,8 @@
             event.preventDefault();
             var cardNumber = document.querySelector("#cardNumber").value;
             if (cardNumber) {
-                alert("Payment successful");
+                // alert("Payment successful");
+                window.location.href = "OTP.html";
             } else {
                 alert("please enter the card number");
             }
