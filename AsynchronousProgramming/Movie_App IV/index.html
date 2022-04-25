@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="container"></div>
+    </body>
+    <script>
+        var movies = [
+            {
+                name: "Ye Jawani Hai Diwani",
+                release_date: "31 May 2013",
+                poster: "https://bit.ly/3uXCERt",
+                IMDb_rating: 4.5,
+            },
+            {
+                name: "Ye Jawani Hai Diwani",
+                release_date: "31 May 2013",
+                poster: "https://bit.ly/3uXCERt",
+                IMDb_rating: 4.5,
+            },
+        ];
+        var movieData;
+
+        if (localStorage.getItem("movieData") === null) {
+            movieData = [];
+        } else {
+            movieData = JSON.parse(localStorage.getItem("movieData"));
+        }
+
+        movies.forEach(function (movieData) {
+            var box = document.createElement("div");
+            box.setAttribute("class", "box");
+
+            var Poster = document.createElement("img");
+            Poster.src = movieData.poster;
+
+            var name = document.createElement("p");
+            name.textContent = menData.name;
+
+            var release_date = document.createElement("p");
+            release_date.textContent = movieData.release_date;
+
+            var IMDb_rating = document.createElement("p");
+            IMDb_rating.textContent = movieData.IMDb_rating;
+
+            box.append(Poster, name, release_date, IMDb_rating);
+            document.querySelector("#container").append(box);
+        });
+    </script>
+</html>

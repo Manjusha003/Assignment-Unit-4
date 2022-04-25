@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#navbar {
+    display: flex;
+    justify-content: right;
+    /* padding-right: 50px; */
+    background-color: black;
+    padding: 15px 60px 15px 0px;
+}
+
+#navbar>div>a {
+    margin-left: 25px;
+    color: white;
+    font-size: 20px;
+
+    text-decoration: none;
+}

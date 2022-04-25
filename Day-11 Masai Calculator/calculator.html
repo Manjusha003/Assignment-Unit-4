@@ -1,12 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masai Calculator</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Masai Calculator</title>
+        <style>
+            #calculator {
+                /* border: 1px solid red; */
+                max-width: 26%;
+                width: 100%;
+                text-align: center;
+                margin: auto;
+            }
+            .calculator-wrapper {
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                padding-top: 20px;
+                padding-bottom: 8px;
+            }
+            .calulator-box {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                padding: 0px 30px;
+                margin: auto;
+                /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+            }
+            input {
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                border: none;
+                width: 67%;
+                padding: 20px;
+                border-radius: 10px;
+
+                margin-bottom: 7px;
+            }
+            .bgcolor-black {
+                background-color: black;
+                color: #fff;
+            }
+            button {
+                /* padding: 15px; */
+                width: 60px;
+                height: 60px;
+                margin: 3px;
+                font-size: 20px;
+                font-weight: bold;
+                background-color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                border: none;
+                border-radius: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="calculator">
+            <h2>Masai Calculator</h2>
+
+            <div class="calculator-wrapper">
+                <input type="text" />
+                <div class="calulator-box">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button id="add" class="bgcolor-black">+</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button id="substrct" class="bgcolor-black">-</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button id="multiply" class="bgcolor-black">X</button>
+                    <button>C</button>
+                    <button>0</button>
+                    <button class="bgcolor-black">=</button>
+                    <button class="bgcolor-black">/</button>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
