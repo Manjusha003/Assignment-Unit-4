@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #container {
+                margin: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            #container > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid #cecece;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="city" />
+        <button onclick="getWeatherData()">GET WEATHER</button>
+        <div id="container"></div>
+    </body>
+    <script>
+        let container = document.getElementById("container");
+        let API_KEY = "89d61df6506e33788abc6c8379ffa533";
+        async function getWeatherData() {
+            try {
+                let city = document.getElementById("city").value;
+                let res = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+                );
+
+                let data = await res.json();
+                console.log(data);
+                displayData(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function displayData(data) {
+            container.innerHTML = "";
+
+            let weatherCard = document.createElement("div");
+            let name = document.createElement("p");
+            name.textContent = "City : " + data.name;
+            let temp = document.createElement("p");
+            temp.textContent = "Temperature : " + data.main.temp + "°C";
+            let humidity = document.createElement("p");
+            humidity.textContent = "Humidity : " + data.main.humidity;
+            let pressure = document.createElement("p");
+            pressure.textContent = "Pressure : " + data.main.pressure;
+
+            let sunrise = document.createElement("p");
+            sunrise.textContent = "Sunrise: " + data.sys.sunrise;
+
+            let sunset = document.createElement("p");
+            sunset.textContent = "Sunset: " + data.sys.sunset;
+
+            let wind_speed = document.createElement("p");
+            wind_speed.textContent = "Wind Speed: " + data.wind.speed;
+
+            let weather = document.createElement("p");
+            weather.textContent =
+                "Weather Description: " + data.weather[0].description;
+
+            weatherCard.append(
+                name,
+                temp,
+                humidity,
+                pressure,
+                sunrise,
+                sunset,
+                wind_speed,
+                weather
+            );
+
+            container.append(weatherCard);
+        }
+    </script>
+</html>

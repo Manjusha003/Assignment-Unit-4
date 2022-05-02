@@ -19,3 +19,13 @@
 
     text-decoration: none;
 }
+
+img {
+  display:none;
+  /* width:70%; */
+ max-width: 50%;
+width: 100%;
+  margin: auto;
+  height: 40%;
+
+}

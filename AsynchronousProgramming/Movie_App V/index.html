@@ -23,85 +23,105 @@
                 width: 100%;
                 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
             }
+            .box > p {
+                padding-left: 20px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
             .box > img {
                 width: 100%;
+            }
+            .buttons {
+                padding: 20px;
+            }
+            .buttons > button {
+                color: #fff;
+                padding: 8px;
+                border: none;
+                background-color: red;
             }
         </style>
     </head>
     <body>
+        <div class="buttons">
+            <h2>Sorting</h2>
+            <button id="sort-lh">Sort by low rating to high</button>
+            <button id="sort-hl">Sort by High rating to low</button>
+        </div>
         <div id="container"></div>
     </body>
     <script>
         var movies = [
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Mission Mangal",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/1529/571529-v",
-                IMDb_rating: 4.5,
+                IMDb_rating: 5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Human",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/3034/1103034-v-afeac4412b5d",
-                IMDb_rating: 4.5,
+                IMDb_rating: 4.3,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Super 30",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/6828/556828-v",
-                IMDb_rating: 4.5,
+                IMDb_rating: 4,
             },
 
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Tanhaji",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/7676/647676-v",
-                IMDb_rating: 4.5,
+                IMDb_rating: 4.2,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Chhichhore",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/896/580896-v",
-                IMDb_rating: 4.5,
+                IMDb_rating: 5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Baaghi 3",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/6536/846536-v",
                 IMDb_rating: 4.5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Raid",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/old_images/vertical/MOVIE/2789/1000212789/1000212789-v",
                 IMDb_rating: 4.5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Neerja",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/704/1000090704/1000090704-v",
                 IMDb_rating: 4.5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Avengers",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/5157/875157-v",
                 IMDb_rating: 4.5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "M.S.Dhoni",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_1_5x/sources/r1/cms/prod/old_images/vertical/MOVIE/3314/1770003314/1770003314-v",
                 IMDb_rating: 4.5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Housefull 3",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/old_images/vertical/MOVIE/4851/1000104851/1000104851-v",
                 IMDb_rating: 4.5,
             },
             {
-                name: "Ye Jawani Hai Diwani",
+                name: "Thor",
                 release_date: "31 May 2013",
                 poster: "https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/4598/674598-v",
                 IMDb_rating: 4.5,
@@ -161,6 +181,8 @@
                 IMDb_rating: 4.5,
             },
         ];
+
+        var filteredData = JSON.parse(JSON.stringify(movies));
         var movieData;
 
         if (localStorage.getItem("movieData") === null) {
@@ -169,24 +191,48 @@
             movieData = JSON.parse(localStorage.getItem("movieData"));
         }
 
-        movies.forEach(function (movieData) {
-            var box = document.createElement("div");
-            box.setAttribute("class", "box");
+        document
+            .querySelector("#sort-lh")
+            .addEventListener("click", lowToHighFn);
+        document
+            .querySelector("#sort-hl")
+            .addEventListener("click", highToLowFn);
+        movieData = JSON.parse(localStorage.getItem("movieData"));
+        function lowToHighFn() {
+            filteredData.sort(function (a, b) {
+                return a.IMDb_rating - b.IMDb_rating;
+            });
+            displayData(filteredData);
+        }
 
-            var Poster = document.createElement("img");
-            Poster.src = movieData.poster;
+        function highToLowFn() {
+            filteredData.sort(function (a, b) {
+                return b.IMDb_rating - a.IMDb_rating;
+            });
+            displayData(filteredData);
+        }
+        function displayData(movies) {
+            document.querySelector("#container").innerHTML = "";
+            movies.forEach(function (movieData) {
+                var box = document.createElement("div");
+                box.setAttribute("class", "box");
 
-            var name = document.createElement("p");
-            name.textContent = movieData.name;
+                var Poster = document.createElement("img");
+                Poster.src = movieData.poster;
 
-            var release_date = document.createElement("p");
-            release_date.textContent = movieData.release_date;
+                var name = document.createElement("p");
+                name.textContent = movieData.name;
 
-            var IMDb_rating = document.createElement("p");
-            IMDb_rating.textContent = movieData.IMDb_rating;
+                var release_date = document.createElement("p");
+                release_date.textContent = movieData.release_date;
 
-            box.append(Poster, name, release_date, IMDb_rating);
-            document.querySelector("#container").append(box);
-        });
+                var IMDb_rating = document.createElement("p");
+                IMDb_rating.textContent = movieData.IMDb_rating;
+
+                box.append(Poster, name, release_date, IMDb_rating);
+                document.querySelector("#container").append(box);
+            });
+        }
+        displayData(movies);
     </script>
 </html>
