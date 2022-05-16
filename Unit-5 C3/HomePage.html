@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            #navbar {
+                background-color: black;
+                padding: 20px;
+            }
+            #navbar > a {
+                color: white;
+                text-decoration: none;
+                font-size: 18px;
+                margin-left: 2%;
+            }
+
+            table,
+            td,
+            th {
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 60%;
+                margin: auto;
+                margin-top: 40px;
+            }
+
+            th,
+            td {
+                padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="navbar">
+            <a href="HomePage.html">Home</a>
+            <a href="SearchPage.html">Search</a>
+        </div>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Brewery_type</th>
+                    <th>City</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </body>
+    <script>
+        // name, brewery_type, city, state
+        function fetchBreweryApi() {
+            let url = "https://api.openbrewerydb.org/breweries";
+            fetch(url)
+                .then(function (res) {
+                    console.log(res);
+                    return res.json();
+                })
+                .then(function (res) {
+                    console.log(res);
+                    let users = res;
+                    displayData(users);
+                })
+
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+
+        function displayData(brewery) {
+            // document.querySelector("tbody").innerHTML = "";
+            brewery.forEach((bre) => {
+                var row = document.createElement("tr");
+                row.setAttribute("class", "row");
+                var td1 = document.createElement("td");
+                td1.innerText = bre.name;
+
+                var td2 = document.createElement("td");
+                td2.innerText = bre.brewery_type;
+
+                var td3 = document.createElement("td");
+                td3.innerText = bre.city;
+
+                var td4 = document.createElement("td");
+                td4.innerText = bre.state;
+
+                row.append(td1, td2, td3, td4);
+                document.querySelector("#table").append(row);
+            });
+        }
+        fetchBreweryApi();
+    </script>
+</html>
