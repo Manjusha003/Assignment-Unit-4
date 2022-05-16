@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box1 {
+            display: flex;
+            justify-content: center;
+        }
+        .ItemList {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 100px;
+        }
+        .background {
+            background: url("./background.jpg");
+            opacity: 0.7;
+            width: 100%;
+        }
+        #food {
+            width: 400px;
+            height: 40px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+        .submit {
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+            border-radius: 7px;
+        }
+        h1 {
+            color: black;
+
+            margin-bottom: 20px;
+        }
+    </style>
+    <body>
+        <div class="background">
+            <div class="box">
+                <h1>ORDER YOUR FAVOURITE FOOD</h1>
+                <div class="box1">
+                    <select name="" id="food">
+                        <option value="Select Your Food" id="selectFood">
+                            Select Your Food
+                        </option>
+                    </select>
+                    <button class="submit" onclick="view()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="ItemList"></div>
+        <script>
+            let categories = JSON.parse(localStorage.getItem("categories"));
+            async function foodlist() {
+                if (!categories) {
+                    try {
+                        let res = await fetch(
+                            `https://www.themealdb.com/api/json/v1/1/categories.php`
+                        );
+                        let data = await res.json();
+                        localStorage.setItem(
+                            "categories",
+                            JSON.stringify(data.categories)
+                        );
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+                categories = JSON.parse(localStorage.getItem("categories"));
+                categories.forEach((element) => {
+                    let select = document.getElementById("food");
+                    let option = document.createElement("option");
+                    option.value = element.strCategory;
+                    option.textContent = element.strCategory;
+                    select.append(option);
+                });
+            }
+            foodlist();
+            async function view() {
+                let select = document.getElementById("food");
+                let selectedcategory =
+                    select.options[select.selectedIndex].value;
+                let ans = await fetch(
+                    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedcategory}`
+                );
+                let data = await ans.json();
+                displaydata(data.meals);
+            }
+
+            function displaydata(newdata) {
+                let div = document.querySelector(".ItemList");
+                div.innerHTML = "";
+                newdata.forEach(function (el) {
+                    console.log(el);
+                    let card = document.createElement("div");
+                    let img = document.createElement("img");
+                    img.src = el.strMealThumb;
+                    img.style.width = "100%";
+                    let title = el.strMeal;
+                    card.append(img, title);
+                    card.style.display = "flex";
+                    card.style.flexDirection = "column";
+                    card.style.textAlign = "center";
+                    card.style.border = "2px solid black";
+                    card.style.borderRadius = "5px";
+                    div.append(card);
+                });
+            }
+        </script>
+    </body>
+</html>
